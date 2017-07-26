@@ -39,8 +39,8 @@ CONSUMER_SECRET = ''
 ACCESS_TOKEN = ''
 ACCESS_SECRET = ''
 
- Condition to filter the tweets on. You can specify multiple 
- keywords separated by commas here.
+# Condition to filter the tweets on. You can specify multiple 
+# keywords separated by commas here.
 TWEET_FILTER = 'track=football'
 
 require 'twitter-streaming'
