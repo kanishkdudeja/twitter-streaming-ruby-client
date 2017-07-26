@@ -3,6 +3,7 @@ module TwitterStreaming
 class StreamingConnection < EventMachine::Connection
 
   #Some constants for the request
+  REQUEST_METHOD = "GET"
   REQUEST_PROTOCOL = "https"
   HOST = "stream.twitter.com"
   PORT = 443
@@ -77,7 +78,7 @@ class StreamingConnection < EventMachine::Connection
 
     #Constructing request hash
     request_options = {}
-    request_options[:request_method] = @options[:request_method]
+    request_options[:request_method] = REQUEST_METHOD
     request_options[:request_protocol] = REQUEST_PROTOCOL
     request_options[:host] = HOST
     request_options[:url_path] = @options[:path]

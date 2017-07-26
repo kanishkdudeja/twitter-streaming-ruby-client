@@ -6,9 +6,6 @@ require 'twitter-streaming'
 
 EventMachine::run {
   connection = TwitterStreaming::StreamingConnection.start(
-    :host => TWITTER_API_REQUEST_HOST,
-    :port => TWITTER_API_REQUEST_PORT,
-    :request_method => TWITTER_API_REQUEST_METHOD,
     :path => TWITTER_API_REQUEST_PATH,
     :oauth    => { :consumer_key => CONSUMER_KEY, :consumer_secret => CONSUMER_SECRET, :access_key => ACCESS_TOKEN, :access_secret => ACCESS_SECRET},
     :query_params => TWEET_FILTER
@@ -40,7 +37,7 @@ EventMachine::run {
   end
 
   trap('TERM') {
-    stream.stop
+    connection.terminate_connection
     EventMachine.stop if EventMachine.reactor_running?
   }
 }
